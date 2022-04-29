@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -22,9 +23,14 @@ public class LoginServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
         resp.setCharacterEncoding("utf-8");
-        resp.setContentType("text/json;charset=utf-8");
-        String person = req.getParameter("person");
-        out.println(person);
+        resp.setContentType("application/json;charset=utf-8");
+
+        String username = req.getParameter("username");
+        String password = req.getParameter("password");
+
+        User user = new User(username, password);
+        Object o = JSONObject.toJSON(user);
+
 //        isLogin isLogin = new isLogin();
 //        User user = isLogin.queryUserByName(username);
 //        PrintWriter outprint=resp.getWriter();

@@ -3,14 +3,14 @@ function login(){
    var username = $(".username").val();
    var password = $(".password").val();
    var person = {
-       name:"limingji",
-       sex:"nan",
-       school:"湖南工商大学"
+       username:"limingji",
+       password:"你好啊"
    }
     $.ajax({
         type: "get",
         url: "login",
-        data: {"person":person},
+        //ajax传递json对象
+        data: person,
         dataType:"json",
         success: function(msg){
             console.log(msg)
