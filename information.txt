@@ -1,0 +1,35 @@
+maven项目：
+    1.配置setting.xml的本地仓库和阿里云镜像
+    2.新建maven项目选择自己的maven和本地仓库
+    3.配置tomcat
+    4.Warning: No artifacts marked for deployment要访问一个网站要配置artfact选择war就行
+    5.application context:/ming :虚拟路径映射网址访问
+
+
+将javaWeb作为父工程，用modoule作为子工程学习可以继承pom.xml依赖
+    servlet:
+        1.为子工程配置tomcat
+        2.继承HttpServlet,重写doGet,doPost
+        3.注册servlet,浏览器才可以访问,在web.xml中注册配置映射
+            配置映射：浏览器访问路径，映射名称
+            注册映射：映射名称，对应的具体servlet类
+        servletContext:
+            web容器在启动的时候，会为每一个web程序都创建一个servletContext对象
+            可以保存数据，实现servlet间的数据共享。
+            请求转发不会改变路径，重定向会改变路径
+        service方法：
+            请求HttpservletRequest
+            响应HttpservletResponse
+        response重定向：
+            一个servlet收到客户端请求后，通知它去访问另外一个servlet
+        request:
+            获取前端参数数据：1.单个 2.数组
+    servlet原理：
+        浏览器向web服务器即tomcat发送请求，web服务器调用servlet
+        一个servlet可以对应一个或多个请求路径/hello*
+
+    cookie:
+        客户端技术(响应，请求)
+        客户端的凭证,记录上次登录时间，可以实现免登录
+    session:
+        服务器技术，可以保存用户会话信息或数据放在session
